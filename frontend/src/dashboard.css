@@ -1,0 +1,446 @@
+
+
+.dashboardPage{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard{
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard .left-bar{
+    border-radius: 50px 0px 0px 50px;
+    width: 15%;
+    height: 100%;
+    background-color: blue;
+    padding-left: 20px;
+}
+
+.dashboard .middle-bar{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    flex: 1;
+}
+
+.dashboard .last-bar{
+    width: 5%;
+    height: 100%;
+    background-color: blue;
+    border-radius: 0px 50px 50px 0px;
+}
+.dashboard .menu{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    justify-content: space-around;
+}
+
+.menu > div a{
+    display: block;
+    color: white;
+    padding: 10px;
+}
+
+.menu > div a:hover{
+    background-color: white;
+    color: blue;
+    border-radius: 20px 0px 0px 20px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.menu > div .active{
+    background-color: white;
+        color: blue;
+        border-radius: 20px 0px 0px 20px;
+        font-weight: bold;
+        width: 100%;
+
+} 
+.dashboard .admin img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dashboard .admin{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+
+.admin .admin-name{
+    color: white;
+    font-weight: bold;
+}
+
+.logout-container{
+    text-align: center;
+}
+
+.logout-container #sign-out{
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background-color:blue;
+    box-shadow: 2px 2px 1px white;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+/* Commen Screen */
+.comment-screen{
+    width: 90%;
+    height: 90%;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+
+.comment-screen table{
+    width: 100%;
+    overflow-y: auto;
+}
+.comment-screen table thead tr th{
+    background-color: blueviolet;
+        padding: 5px;
+        color: whitesmoke;
+}
+table tr td button{
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/* Course Screen */
+.course-screen{
+
+        width: 90%;
+        height: 98%;
+        background-color: whitesmoke;
+        overflow: hidden;
+}
+
+.course-screen table thead tr th {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: blueviolet;
+}
+
+.course-btn-container{
+    padding: 10px;
+    text-align: right;
+    background-color: #009688;
+}
+
+.course-btn-container button{
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: blue;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.course-screen table{
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+/* QnA Screen */
+.QnA-screen{
+    width: 90%;
+    height: 90%;
+    background-color: whitesmoke;
+    overflow-y: hidden;
+}
+
+.QnA-screen table thead tr th {
+    padding: 5px;
+    color: whitesmoke;
+    background-color: blueviolet;
+}
+
+.QnA-screen table{
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* Overview Screen */
+
+.overview-screen{
+    padding: 20px;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 5%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+
+.overview-screen .item1{
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 1px rgba(00, 00, 00, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.overview-screen .item1 .accuracy {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accuracy .outer {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.accuracy .inner {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 6px -10px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.5)
+}
+
+.accuracy #number {
+    font-weight: bold;
+    color: purple;
+}
+
+.accuracy .accuracy-text{
+    color: gray;
+    font-size: 12px;
+}
+.accuracy svg {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+circle {
+    fill: none;
+    stroke-dasharray: 565px;
+    stroke-linecap: round;
+
+}
+
+
+.overview-screen .item2{
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 50%, 30%;
+    padding: 30px;
+    gap: 20px;
+}
+
+.item2 .total-user{
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5), -2px -2px 1px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item2 .total-user .total-user-number{
+    font-size: 50px;
+    color: gray;
+}
+
+.item2 .average-user{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
+.average-user-number{
+    font-size: 30px;
+    color: grey;
+}
+
+.average-user-text{
+    font-size: 12px;
+    color: gray;
+}
+
+
+/* ADD COURSE PAGE */
+
+.add-course-page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-course-form-wrapper{
+    width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 0.5px rgba(00, 00, 00, 0.5), -1px -1px 0.5px rgba(00, 00, 00, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-course-form-wrapper .btn-wrapper{
+    padding: 10px;
+    width: 100%;
+    text-align: right;
+}
+
+.add-course-form-wrapper .btn-wrapper button{
+    outline: none;
+    border: none;
+    padding: 10px 16px;
+    background-color: blue;
+    color: white;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-course-form-wrapper .btn-wrapper button:hover{
+    background-color: red;
+}
+
+.tap-wrapper{
+    width: 100%;
+    background-color: #009688;
+}
+.tap-wrapper .form-tap{
+    margin: auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+}
+
+.form-tap >div{
+    width: 100%;
+    display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: aliceblue;
+}
+
+.form-tap > div label{
+    width: 30%;
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.form-tap  div input{
+    padding: 5px;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid black;
+    background-color: aliceblue;
+}
+
+/*LOADING INDICATOR */
+.indicator-container {
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: black white black purple;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    animation: spin 1s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:800px) {
+    .dashboard .left-bar{
+        width: 30%;
+    }
+
+    .dashboard .middle-bar{
+        width: 60%;
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+    .dashboard {
+        display: none;
+    }
+
+}

@@ -1,0 +1,319 @@
+
+
+
+.botContainer {
+    overflow: hidden;
+    z-index: 4;
+    border-radius: 10px 10px 30px 20px;
+    position: fixed;
+    width: 80vw;
+    padding: 0px 0px;
+    bottom: 10px;
+    right: 50px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: purple;
+}
+
+.toggleBtn {
+    border-radius: 40px 40px 0px 0px;
+    width: 100%;
+    padding: 5px 10px;
+    background-color: rgb(50, 148, 115);
+    color: whitesmoke;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.toggleBtn .btn{
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.toggleBtn .btn span{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.toggleBtn .btn .img-container{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+    border: 4px solid purple;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.toggleBtn img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    animation: glow 2s linear infinite;
+    animation-timing-function:ease;
+    
+}
+
+@keyframes glow {
+    from{
+        box-shadow: 0px 0px 10px white, 0px 0px 15px white, 0px 0px 20px white, 0px 0px 25px white;
+    }
+    to{
+        box-shadow: 0px 0px 1px whitesmoke, 0px 0px 2px whitesmoke, 0px 0px 3px whitesmoke, 0px 0px 4px whitesmoke;
+    }
+    
+}
+
+.refresh{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.spin{
+    animation: spin 0.5s linear 1;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+.botWrapper {
+    overflow: hidden;
+    max-height: 80vh;
+    width: 100%;
+    height: 0px;
+    background-color: rgba(00, 00, 00, 0.8);
+    transition: all 0.5s;
+}
+
+.showChat {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputContainer input,
+.inputContainer button {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.inputContainer {
+    height: 8%;
+    width: 100%;
+    display: flex;
+    padding: 10px 0px;
+    justify-content: space-around;
+    background-color: rgb(50, 148, 115);
+}
+
+.inputContainer input {
+    border-radius: 5px;
+    width: 60%;
+}
+
+.inputContainer button {
+    border-radius: 40px 20px 40px 20px;
+    cursor: pointer;
+    width: 30%;
+    box-shadow: 1px 1px 3px 3px rgba(00, 00, 00, 0.5);
+    background-image: linear-gradient(purple,black);
+    color: white;
+    transition: all 0.1s;
+}
+.inputContainer button:active {
+    box-shadow: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.botMessage {
+    overflow: auto;
+    scrollbar-width: 0px;
+    width: 100%;
+    height: 80vh;
+    scroll-behavior: smooth;
+    padding-bottom: 10vh;
+}
+
+.bot {
+    width: 100%;
+}
+
+.botMessage .bot:last-child{
+    animation: moveLeft 0.2s linear 1;
+}
+
+.bot span {
+    display: inline-block;
+    box-shadow: 3px 3px 2px rgba(00, 255, 255, 0.5);
+    margin: 10px;
+    background-color: white;
+    padding: 10px 16px;
+    color: black;
+    border-radius: 10px;
+    border-radius: 0px 20px 20px 20px
+}
+
+@keyframes moveLeft {
+    0%{
+        margin-left: -100%;
+    }
+
+    100%{
+        margin-left: 0%;
+    }
+}
+
+
+
+.user {
+    text-align: right;
+    width: 100%;
+}
+
+.user span {
+    display: inline-block;
+    border-radius: 20px 20px 20px 0px;
+    box-shadow: 3px 3px 2px rgba(255, 255, 255, 0.5);
+    margin: 10px;
+    background-color: purple;
+    padding: 10px 16px;
+    color: white;
+}
+
+
+
+#messagebox-container{
+    padding: 5px 0px;
+    width: 90%;
+    margin: auto;
+
+
+}
+
+#messageBox{
+    width: 90%;
+    background-color: rebeccapurple;
+    margin: auto;
+    border-radius: 10px;
+}
+#messageBox > div{
+    width: 100%;
+    padding: 8px 10px;
+}
+
+#messageBox label{
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    width: 20%;
+    font-size: 12px;
+}
+
+#messageBox input{
+    display: inline-block;
+    padding: 5px;
+    width: 80%;
+    border: none;
+    outline: none;
+}
+
+#messageBox >div textarea{
+    width: 100%;
+    height: 100px;
+}
+
+#messageBox :nth-child(5){
+    text-align: right;
+}
+
+#messageBox > div button{
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: whitesmoke;
+    color: red;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0.5px white;
+}
+
+#messageBox > div button:active{
+    box-shadow: none;
+}
+
+#error{
+    text-align: center;
+    color: red;
+    background-color: aliceblue;
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+@keyframes spin {
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+
+
+
+
+
+@media screen and (min-width:800px) {
+    .botContainer {
+        width: 70vw;
+    }
+
+}
+
+@media screen and (min-width:1000px) {
+    .botContainer{
+        width: 25vw;
+    }
+}
+
+@media screen  and (min-width:1600px){
+    .botContainer{
+        width: 20vw;
+    }
+    
+}
+
+@media screen and (min-width:2000px){
+    .botContainer{
+        width: 20vw;
+    }
+    
+}
