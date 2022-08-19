@@ -49,7 +49,7 @@ function MessageBox({show, setMessageArray,To}) {
             Text:input.text
         }
 
-        Axios.post("/api/messages/sendMessage", message)
+        Axios.post("https://bolaji-chatbot.herokuapp.com/api/messages/sendMessage", message)
             .then(res => {
             show(false)
         setMessageArray([{bot:res.data.message, user:''}])

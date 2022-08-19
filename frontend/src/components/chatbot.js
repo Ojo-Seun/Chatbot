@@ -57,7 +57,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post(`/dialogflowApi/eventQuery`,{event: intent })
+        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/eventQuery`,{event: intent })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
@@ -85,7 +85,7 @@ const scroll = (elements) => {
         const elements = document.getElementsByClassName("user")
         scroll(elements)
 
-        Axios.post(`/dialogflowApi/textQuery`,
+        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/textQuery`,
             {
              text:input
             })
@@ -137,7 +137,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post(`/dialogflowApi/eventQuery`,{event: "Introduction" })
+        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/eventQuery`,{event: "Introduction" })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)

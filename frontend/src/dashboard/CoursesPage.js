@@ -40,7 +40,7 @@ function CoursesPage() {
 
 
   useEffect(() => {
-    axios.get('/api/courses/getCourses',
+    axios.get('https://bolaji-chatbot.herokuapp.com/api/courses/getCourses',
     {
         headers: {
           "Content-Type": "application/json",

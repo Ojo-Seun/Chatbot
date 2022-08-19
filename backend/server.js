@@ -17,6 +17,7 @@ import messageRouter from './routes/messageRouter.js'
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 dotenv.config()
+app.use(cors())
 
 mongoose.connect(process.env.ATLAS_URL)
   .then(() => {
@@ -37,13 +38,13 @@ app.use('/api/QnAs', QnARouter)
 app.use('/api/overview', overviewRouter)
 app.use('/api/messages', messageRouter)
 
+
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, '/frontend/build')));
   app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
   );
-  
 }
   
 

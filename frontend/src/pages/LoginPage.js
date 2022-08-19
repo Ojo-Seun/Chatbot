@@ -32,7 +32,7 @@ function LoginPage() {
        setError('You must fill all the fields')
        return
      }
-     axios.post('/api/admin/login', {
+     axios.post('https://bolaji-chatbot.herokuapp.com/api/admin/login', {
                 email,
                 password
              }).then(res => {

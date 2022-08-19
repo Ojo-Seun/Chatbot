@@ -76,7 +76,7 @@ function UpdateCourse() {
 
 
 
-     axios.put(`/api/courses/updateCourse/${_id}`,
+     axios.put(`https://bolaji-chatbot.herokuapp.com/api/courses/updateCourse/${_id}`,
         data,
       {
 
@@ -98,7 +98,7 @@ function UpdateCourse() {
   }
 
   useEffect(() => {
-     axios.get(`/api/courses/getCourse/${_id}`,
+     axios.get(`https://bolaji-chatbot.herokuapp.com/api/courses/getCourse/${_id}`,
     {
         headers: {
           "Content-Type": "application/json",

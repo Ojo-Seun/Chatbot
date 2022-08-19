@@ -71,7 +71,7 @@ function AddCourse() {
 
 
 
-    axios.post(`/api/courses/addCourse`,
+    axios.post(`https://bolaji-chatbot.herokuapp.com/api/courses/addCourse`,
       data,
       {
 

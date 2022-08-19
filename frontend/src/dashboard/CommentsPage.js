@@ -37,7 +37,7 @@ function CommentsPage() {
 
 
   useEffect(() => {
-    axios.get('/api/comments/getComments')
+    axios.get('https://bolaji-chatbot.herokuapp.com/api/comments/getComments')
       .then(res => {
       setData({comments:res.data.comments, loading:false, error:false})
       }).catch(err => {

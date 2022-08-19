@@ -11,7 +11,7 @@ function CoursesAndAbbr() {
 
 
   useState(() => {
-    Axios.get("/api/courses/getCourses")
+    Axios.get("https://bolaji-chatbot.herokuapp.com/api/courses/getCourses")
       .then(res => {
       setCourses(res.data.courses)
     })

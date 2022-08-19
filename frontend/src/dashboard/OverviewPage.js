@@ -12,7 +12,7 @@ function OverviewPage() {
 
 
   useEffect(() => {
-    axios.get("/api/overview/getOverview", {
+    axios.get("https://bolaji-chatbot.herokuapp.com/api/overview/getOverview", {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${Token}`

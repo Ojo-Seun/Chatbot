@@ -32,7 +32,7 @@ function RegisterPage() {
      } else if (password !== confirmPassword) {
        setError('The two passwords are not equal')
      } else {
-       axios.post('/api/admin/register', {
+       axios.post('https://bolaji-chatbot.herokuapp.com/api/admin/register', {
                 name,
                 email,
               password

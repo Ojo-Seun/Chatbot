@@ -43,7 +43,7 @@ function QnA() {
 
 
   useEffect(() => {
-    axios.get('/api/QnAs/getQnAs',
+    axios.get('https://bolaji-chatbot.herokuapp.com/api/QnAs/getQnAs',
     {
         headers: {
           "Content-Type": "application/json",

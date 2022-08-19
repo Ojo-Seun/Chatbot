@@ -39,7 +39,7 @@ function EmailBox({ setShowEmailBox, eventQuery, setMessageArray }) {
             return
         }
 
-        axios.post("/api/user/addUserEmail", { userEmail: email })
+        axios.post("https://bolaji-chatbot.herokuapp.com/api/user/addUserEmail", { userEmail: email })
             .then(res => {
                 dispatch({ type: "SETUSEREMAIL", payload: email })
                 eventQuery("Introduction", setMessageArray)
