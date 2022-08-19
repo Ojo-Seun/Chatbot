@@ -14,7 +14,7 @@ function Chatbot() {
     const botWrapperRef = useRef(null)
     const inputRef = useRef(null)
     const [messageArray, setMessageArray] = useState([{bot:'', user: '' }])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const spinRef = useRef(null)
     const [open, setOpen] = useState(false)
     const [showMessageBox, setMessageBox] = useState({show:false, email:''})
@@ -60,9 +60,12 @@ const scroll = (elements) => {
         
         Axios.post('http://localhost:5000/dialogflowApi/eventQuery',{event: intent })
             .then(res => {
-            setMessageArray([{bot:res.data.Response, user:''}])
+                setMessageArray([{ bot: res.data.Response, user: '' }])
+                setLoading(false)
+                
             }).catch(err => {
-                console.log(err.message)
+                setLoading(false)
+                setMessageArray([{bot:"Server Error Please Refresh The Page", user: ''}])
         })
     }
  
@@ -114,6 +117,7 @@ const scroll = (elements) => {
 
                 
             }).catch(err => {
+                setLoading(false)
            })
 
         inputRef.current.value = ''
@@ -136,9 +140,12 @@ const scroll = (elements) => {
         
         Axios.post('http://localhost:5000/dialogflowApi/eventQuery',{event: "Introduction" })
             .then(res => {
-            setMessageArray([{bot:res.data.Response, user:''}])
+                setMessageArray([{ bot: res.data.Response, user: '' }])
+                setLoading(false)
             }).catch(err => {
-            setMessageArray([{bot:err.message, user:''}])
+                setLoading(false)
+                setMessageArray([{ bot: "Server Error Please Refresh The Page", user: '' }])
+                
         })
 },[showEmailBox])
     
