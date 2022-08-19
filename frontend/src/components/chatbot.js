@@ -7,6 +7,7 @@ import MessageBox from './MessageBox'
 import EmailBox from './EmailBox'
 import Store from './Store'
 import LoadingIndicator from './LoadingIndicator'
+const baseURL = process.env.LIVE_URL
 
 function Chatbot() {
     const {state} = useContext(Store)
@@ -57,7 +58,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post('/dialogflowApi/eventQuery',{event: intent })
+        Axios.post(`${baseURL}/dialogflowApi/eventQuery`,{event: intent })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
@@ -85,7 +86,7 @@ const scroll = (elements) => {
         const elements = document.getElementsByClassName("user")
         scroll(elements)
 
-        Axios.post('/dialogflowApi/textQuery',
+        Axios.post(`${baseURL}/dialogflowApi/textQuery`,
             {
              text:input
             })
@@ -137,7 +138,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post('/dialogflowApi/eventQuery',{event: "Introduction" })
+        Axios.post(`${baseURL}/dialogflowApi/eventQuery`,{event: "Introduction" })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
