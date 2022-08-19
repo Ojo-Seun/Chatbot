@@ -2,7 +2,6 @@ import express from 'express'
 import expressAsyncHandler from 'express-async-handler'
 import CoursesModel from '../models/CoursesSchema.js'
 const router = express.Router()
-import data from '../rawData.js'
 import { isAuth } from '../utils.js'
 
 

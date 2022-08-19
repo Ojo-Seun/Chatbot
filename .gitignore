@@ -24,7 +24,7 @@ yarn-error.log*
 .env
 /node_modules
 rawData.js
-courseData.js
+coursesData.js
 
 
 
