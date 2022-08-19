@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Store from '../components/Store'
 import { validateData } from '../utils'
 import axios from 'axios'
@@ -32,7 +32,7 @@ function LoginPage() {
        setError('You must fill all the fields')
        return
      }
-     axios.post('http://localhost:5000/api/admin/login', {
+     axios.post('/api/admin/login', {
                 email,
                 password
              }).then(res => {

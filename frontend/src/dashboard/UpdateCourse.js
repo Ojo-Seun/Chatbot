@@ -76,7 +76,7 @@ function UpdateCourse() {
 
 
 
-     axios.put(`http://localhost:5000/api/courses/updateCourse/${_id}`,
+     axios.put(`/api/courses/updateCourse/${_id}`,
         data,
       {
 
@@ -98,7 +98,7 @@ function UpdateCourse() {
   }
 
   useEffect(() => {
-     axios.get(`http://localhost:5000/api/courses/getCourse/${_id}`,
+     axios.get(`/api/courses/getCourse/${_id}`,
     {
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ function OverviewPage() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/overview/getOverview", {
+    axios.get("/api/overview/getOverview", {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${Token}`

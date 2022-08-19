@@ -45,7 +45,6 @@ const scroll = (elements) => {
     const handleChange = (e) => {
         const value = e.target.value
         if (validate(value) || !state.userEmail || showEmailBox) {
-            console.log("valid")
             setMessageBox(false)
             return
         }
@@ -58,7 +57,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post('http://localhost:5000/dialogflowApi/eventQuery',{event: intent })
+        Axios.post('/dialogflowApi/eventQuery',{event: intent })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
@@ -86,7 +85,7 @@ const scroll = (elements) => {
         const elements = document.getElementsByClassName("user")
         scroll(elements)
 
-        Axios.post('http://localhost:5000/dialogflowApi/textQuery',
+        Axios.post('/dialogflowApi/textQuery',
             {
              text:input
             })
@@ -113,7 +112,7 @@ const scroll = (elements) => {
                     Accuracy:response.Accuracy
                 }
 
-                Axios.post("http://localhost:5000/api/QnAs/addQnA", QnA)
+                Axios.post("/api/QnAs/addQnA", QnA)
 
                 
             }).catch(err => {
@@ -138,7 +137,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post('http://localhost:5000/dialogflowApi/eventQuery',{event: "Introduction" })
+        Axios.post('/dialogflowApi/eventQuery',{event: "Introduction" })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)

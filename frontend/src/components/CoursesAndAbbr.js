@@ -11,7 +11,7 @@ function CoursesAndAbbr() {
 
 
   useState(() => {
-    Axios.get("http://localhost:5000/api/courses/getCourses")
+    Axios.get("/api/courses/getCourses")
       .then(res => {
       setCourses(res.data.courses)
     })

@@ -18,7 +18,7 @@ function QnA() {
 
   const delQnA = (e) => {
     const _id = e.target.id
-    axios.delete(`http://localhost:5000/api/QnAs/deleteQnA/${_id}`,
+    axios.delete(`/api/QnAs/deleteQnA/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function QnA() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/QnAs/getQnAs',
+    axios.get('/api/QnAs/getQnAs',
     {
         headers: {
           "Content-Type": "application/json",

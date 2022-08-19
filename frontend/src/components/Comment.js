@@ -13,12 +13,14 @@ function Comment() {
   }
 
   const handleSendToServer = () => {
-    if (validate(comment.comment)) {
+    if (validate(comment.comment) || comment.comment === "") {
       return
     }
+      console.log("false")
+
     setComment({ ...comment, isSent: true })
 
-    Axios.post("http://localhost:5000/api/comments/addComment", {comment:comment.comment})
+    Axios.post("/api/comments/addComment", {comment:comment.comment})
       .then(res => {
         const input = document.getElementById("input")
         input.value = ''

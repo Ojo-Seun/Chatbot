@@ -12,7 +12,7 @@ function CommentsPage() {
 
   const delComment = (e) => {
     const _id = e.target.id
-    axios.delete(`http://localhost:5000/api/comments/deleteComment/${_id}`,
+    axios.delete(`/api/comments/deleteComment/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function CommentsPage() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/comments/getComments')
+    axios.get('/api/comments/getComments')
       .then(res => {
       setData({comments:res.data.comments, loading:false, error:false})
       }).catch(err => {

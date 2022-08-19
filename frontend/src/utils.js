@@ -4,7 +4,7 @@
 
 const validate = (input) => {
   const inputRegEx = /^\s|\(|"|<|>|\)|\\$/
-    const isValid = inputRegEx.test(input)
+  const isValid = inputRegEx.test(input)
     return isValid
     
 }

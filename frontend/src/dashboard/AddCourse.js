@@ -71,7 +71,7 @@ function AddCourse() {
 
 
 
-    axios.post(`http://localhost:5000/api/courses/addCourse`,
+    axios.post(`/api/courses/addCourse`,
       data,
       {
 

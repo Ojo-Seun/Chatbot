@@ -32,7 +32,7 @@ function RegisterPage() {
      } else if (password !== confirmPassword) {
        setError('The two passwords are not equal')
      } else {
-       axios.post('http://localhost:5000/api/admin/register', {
+       axios.post('/api/admin/register', {
                 name,
                 email,
               password

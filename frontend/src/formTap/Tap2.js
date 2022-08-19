@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { formDataValidation } from '../utils'
 
 function Tap2({inputFromBackend = null, input, setInput, setFormError}) {

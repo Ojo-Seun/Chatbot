@@ -15,7 +15,7 @@ function CoursesPage() {
 
   const delCourse = (e) => {
     const _id = e.target.id
-    axios.delete(`http://localhost:5000/api/courses/deleteCourse/${_id}`,
+    axios.delete(`/api/courses/deleteCourse/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function CoursesPage() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/courses/getCourses',
+    axios.get('/api/courses/getCourses',
     {
         headers: {
           "Content-Type": "application/json",

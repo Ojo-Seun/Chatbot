@@ -39,7 +39,7 @@ function EmailBox({ setShowEmailBox, eventQuery, setMessageArray }) {
             return
         }
 
-        axios.post("http://localhost:5000/api/user/addUserEmail", { userEmail: email })
+        axios.post("/api/user/addUserEmail", { userEmail: email })
             .then(res => {
                 dispatch({ type: "SETUSEREMAIL", payload: email })
                 eventQuery("Introduction", setMessageArray)
