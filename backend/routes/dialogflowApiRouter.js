@@ -45,8 +45,19 @@ const private_key = keys.private_key
 const sessionId = uuidv4()
 const LanguageCode = keys.LanguageCode
 
-const credentials = keys
-
+const credentials = {
+  "type":JSON.stringify(keys.type),
+  "project_id":JSON.stringify(keys.project_id),
+  "private_key_id":JSON.stringify(keys.private_key_id),
+  "private_key":JSON.stringify(keys.private_key),
+  "client_email":JSON.stringify(keys.client_email) ,
+  "client_id":JSON.stringify(keys.client_id) ,
+  "auth_uri":JSON.stringify(keys.auth_uri),
+  "token_uri":JSON.stringify(keys.token_uri),
+  "auth_provider_x509_cert_url":JSON.stringify(keys.auth_provider_x509_cert_url) ,
+  "client_x509_cert_url":JSON.stringify(keys.client_x509_cert_url)
+}
+console.log(credentials)
 const sessionClient = new dialogflow.SessionsClient({project_id, credentials});
 const sessionPath = sessionClient.sessionPath(project_id, sessionId);
 
@@ -68,15 +79,7 @@ router.post('/textQuery', expressAsyncHandler(async (req, res) => {
     };
 
     const responses = await sessionClient.detectIntent(request)
-        .then(res => {
-            res.status(200).json({
-                message:"SUCCESS"
-            }).catch(err => {
-                res.status(500).json({
-                    err
-                })
-            })
-        });
+        
     const result = await responses[0].queryResult;
     const intent = result.intent.displayName
     const Accuracy = result.intentDetectionConfidence * 100
@@ -125,15 +128,7 @@ router.post('/eventQuery', expressAsyncHandler(async (req, res) => {
     }
 
     const responses = await sessionClient.detectIntent(request)
-    .then(res => {
-            res.status(200).json({
-                message:"SUCCESS"
-            }).catch(err => {
-                res.status(500).json({
-                    err
-                })
-            })
-        });
+    
     const result = await responses[0].queryResult;
 
     res.status(200).json({

@@ -117,7 +117,6 @@ const scroll = (elements) => {
 
                 
             }).catch(err => {
-                console.log(err)
                 setLoading(false)
            })
 
@@ -144,7 +143,6 @@ const scroll = (elements) => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
             }).catch(err => {
-                console.log(err)
                 setLoading(false)
                 setMessageArray([{ bot: "Server Error Please Refresh The Page", user: '' }])
                 
