@@ -67,7 +67,16 @@ router.post('/textQuery', expressAsyncHandler(async (req, res) => {
         },
     };
 
-    const responses = await sessionClient.detectIntent(request);
+    const responses = await sessionClient.detectIntent(request)
+        .then(res => {
+            res.status(200).json({
+                message:"SUCCESS"
+            }).catch(err => {
+                res.status(500).json({
+                    err
+                })
+            })
+        });
     const result = await responses[0].queryResult;
     const intent = result.intent.displayName
     const Accuracy = result.intentDetectionConfidence * 100
@@ -115,7 +124,16 @@ router.post('/eventQuery', expressAsyncHandler(async (req, res) => {
         },
     }
 
-    const responses = await sessionClient.detectIntent(request);
+    const responses = await sessionClient.detectIntent(request)
+    .then(res => {
+            res.status(200).json({
+                message:"SUCCESS"
+            }).catch(err => {
+                res.status(500).json({
+                    err
+                })
+            })
+        });
     const result = await responses[0].queryResult;
 
     res.status(200).json({
