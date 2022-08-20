@@ -46,18 +46,17 @@ const sessionId = uuidv4()
 const LanguageCode = keys.LanguageCode
 
 const credentials = {
-  "type":JSON.stringify(keys.type),
-  "project_id":JSON.stringify(keys.project_id),
-  "private_key_id":JSON.stringify(keys.private_key_id),
-  "private_key":JSON.stringify(keys.private_key),
-  "client_email":JSON.stringify(keys.client_email) ,
-  "client_id":JSON.stringify(keys.client_id) ,
-  "auth_uri":JSON.stringify(keys.auth_uri),
-  "token_uri":JSON.stringify(keys.token_uri),
-  "auth_provider_x509_cert_url":JSON.stringify(keys.auth_provider_x509_cert_url) ,
-  "client_x509_cert_url":JSON.stringify(keys.client_x509_cert_url)
+  "type":keys.type,
+  "project_id":keys.project_id,
+  "private_key_id":keys.private_key_id,
+  "private_key":keys.private_key,
+  "client_email":keys.client_email,
+  "client_id":keys.client_id,
+  "auth_uri":keys.auth_uri,
+  "token_uri":keys.token_uri,
+  "auth_provider_x509_cert_url":keys.auth_provider_x509_cert_url,
+  "client_x509_cert_url":keys.client_x509_cert_url
 }
-console.log(credentials)
 const sessionClient = new dialogflow.SessionsClient({project_id, credentials});
 const sessionPath = sessionClient.sessionPath(project_id, sessionId);
 
