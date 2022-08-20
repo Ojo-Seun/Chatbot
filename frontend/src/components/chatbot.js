@@ -63,7 +63,6 @@ const scroll = (elements) => {
                 setLoading(false)
                 
             }).catch(err => {
-                console.log(err)
                 setLoading(false)
                 setMessageArray([{bot:"Server Error Please Refresh The Page", user: ''}])
         })
@@ -186,7 +185,7 @@ const scroll = (elements) => {
                       }
                       {loading && <div><LoadingIndicator/></div>}
                       {showMessageBox.show && <div id='messagebox-container'><MessageBox To={showMessageBox.email} setMessageArray={setMessageArray} show={setMessageBox} /></div>}
-                      {showEmailBox && <div id='email-box-container'><EmailBox eventQuery={eventQuery} setMessageArray={setMessageArray} setShowEmailBox={setShowEmailBox} /></div>}
+                      {showEmailBox && <div id='email-box-container'><EmailBox setLoading={setLoading} eventQuery={eventQuery} setMessageArray={setMessageArray} setShowEmailBox={setShowEmailBox} /></div>}
                   </div>
 
                   <form onSubmit={(e)=>textQuery(e)} className='inputContainer'>

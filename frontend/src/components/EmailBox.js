@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Store from './Store'
 import axios from 'axios'
 import validate, { baseURL } from '../utils'
@@ -21,7 +21,7 @@ const error = document.getElementById("email-error")
 
 
 
-function EmailBox({ setShowEmailBox, eventQuery, setMessageArray }) {
+function EmailBox({ setShowEmailBox, eventQuery, setMessageArray,setLoading }) {
     const {dispatch} = useContext(Store)
     const [email, setEmail] = useState('')
     const inputRef = useRef(null)
@@ -49,6 +49,11 @@ function EmailBox({ setShowEmailBox, eventQuery, setMessageArray }) {
         })
         
     }
+
+    useEffect(() => {
+        setLoading(false)
+    },[setLoading])
+
 
     
   return (
