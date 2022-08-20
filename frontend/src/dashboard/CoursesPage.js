@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Dashboard from '../components/Dashboard'
 import LoadingIndicator from '../components/LoadingIndicator'
 import Store from '../components/Store'
+import { baseURL } from '../utils'
 
 function CoursesPage() {
   const navigate = useNavigate()
@@ -15,7 +16,7 @@ function CoursesPage() {
 
   const delCourse = (e) => {
     const _id = e.target.id
-    axios.delete(`/api/courses/deleteCourse/${_id}`,
+    axios.delete(`${baseURL}/api/courses/deleteCourse/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +41,7 @@ function CoursesPage() {
 
 
   useEffect(() => {
-    axios.get('https://bolaji-chatbot.herokuapp.com/api/courses/getCourses',
+    axios.get(`${baseURL}/api/courses/getCourses`,
     {
         headers: {
           "Content-Type": "application/json",

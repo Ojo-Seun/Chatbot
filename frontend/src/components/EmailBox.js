@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import Store from './Store'
 import axios from 'axios'
-import validate from '../utils'
+import validate, { baseURL } from '../utils'
 
 
 
@@ -39,7 +39,7 @@ function EmailBox({ setShowEmailBox, eventQuery, setMessageArray }) {
             return
         }
 
-        axios.post("https://bolaji-chatbot.herokuapp.com/api/user/addUserEmail", { userEmail: email })
+        axios.post(`${baseURL}/api/user/addUserEmail`, { userEmail: email })
             .then(res => {
                 dispatch({ type: "SETUSEREMAIL", payload: email })
                 eventQuery("Introduction", setMessageArray)

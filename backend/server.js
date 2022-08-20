@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 dotenv.config()
 app.use(cors())
 
-mongoose.connect(process.env.ATLAS_URL)
+mongoose.connect(process.env.MONGODB_LOCAL_URL)
   .then(() => {
     console.log('Chatbot connected');
   })

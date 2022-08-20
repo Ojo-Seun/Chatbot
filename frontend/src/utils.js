@@ -1,6 +1,6 @@
 
 
-
+export const baseURL = process.env.NODE_ENV === "production"? "https://bolaji-chatbot.herokuapp.com" : "http://localhost:5000"
 
 const validate = (input) => {
   const inputRegEx = /^\s|\(|"|<|>|\)|\\$/

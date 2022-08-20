@@ -4,8 +4,7 @@ const router = express.Router()
 import dialogflow from 'dialogflow'
 import { v4 as uuidv4 } from 'uuid';
 import CoursesModel from '../models/CoursesSchema.js'
-import keys  from '../config/keys.js'
-
+import keys from '../config/keys.js'
 const matchIntent = (course, intent, courseTitle) => {
     
 
@@ -41,17 +40,15 @@ const matchIntent = (course, intent, courseTitle) => {
 
 
 
-const projectId = keys.googleProjectId
-const privateKey = keys.googlePrivateKey
+const project_id = keys.project_id
+const private_key = keys.private_key
 const sessionId = uuidv4()
 const LanguageCode = keys.LanguageCode
 
-const credentials = {
-    client_email: keys.googleClientEmail,
-    private_key:privateKey
-}
-const sessionClient = new dialogflow.SessionsClient({projectId, credentials});
-const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+const credentials = keys
+
+const sessionClient = new dialogflow.SessionsClient({project_id, credentials});
+const sessionPath = sessionClient.sessionPath(project_id, sessionId);
 
 
 

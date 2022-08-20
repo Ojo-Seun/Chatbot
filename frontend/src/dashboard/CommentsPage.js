@@ -3,6 +3,7 @@ import Dashboard from '../components/Dashboard'
 import axios from 'axios'
 import LoadingIndicator from '../components/LoadingIndicator'
 import Store from '../components/Store'
+import { baseURL } from '../utils'
 
 function CommentsPage() {
   const {state} = useContext(Store)
@@ -12,7 +13,7 @@ function CommentsPage() {
 
   const delComment = (e) => {
     const _id = e.target.id
-    axios.delete(`/api/comments/deleteComment/${_id}`,
+    axios.delete(`${baseURL}/api/comments/deleteComment/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +38,7 @@ function CommentsPage() {
 
 
   useEffect(() => {
-    axios.get('https://bolaji-chatbot.herokuapp.com/api/comments/getComments')
+    axios.get(`${baseURL}/api/comments/getComments`)
       .then(res => {
       setData({comments:res.data.comments, loading:false, error:false})
       }).catch(err => {

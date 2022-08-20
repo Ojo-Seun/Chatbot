@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Dashboard from '../components/Dashboard'
 import LoadingIndicator from '../components/LoadingIndicator'
 import Store from '../components/Store'
+import { baseURL } from '../utils'
 
 
 
@@ -18,7 +19,7 @@ function QnA() {
 
   const delQnA = (e) => {
     const _id = e.target.id
-    axios.delete(`/api/QnAs/deleteQnA/${_id}`,
+    axios.delete(`${baseURL}/api/QnAs/deleteQnA/${_id}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +44,7 @@ function QnA() {
 
 
   useEffect(() => {
-    axios.get('https://bolaji-chatbot.herokuapp.com/api/QnAs/getQnAs',
+    axios.get(`${baseURL}/api/QnAs/getQnAs`,
     {
         headers: {
           "Content-Type": "application/json",

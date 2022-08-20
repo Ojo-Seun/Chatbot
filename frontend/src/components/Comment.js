@@ -1,5 +1,5 @@
 import React, {useState } from 'react'
-import validate from '../utils'
+import validate, { baseURL } from '../utils'
 import Axios from 'axios'
 
 function Comment() {
@@ -20,7 +20,7 @@ function Comment() {
 
     setComment({ ...comment, isSent: true })
 
-    Axios.post("https://bolaji-chatbot.herokuapp.com/api/comments/addComment", {comment:comment.comment})
+    Axios.post(`${baseURL}/api/comments/addComment`, {comment:comment.comment})
       .then(res => {
         const input = document.getElementById("input")
         input.value = ''

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Dashboard from '../components/Dashboard'
 import axios from 'axios'
 import Store from '../components/Store'
+import { baseURL } from '../utils'
 
 function OverviewPage() {
   const { state } = useContext(Store)
@@ -12,7 +13,7 @@ function OverviewPage() {
 
 
   useEffect(() => {
-    axios.get("https://bolaji-chatbot.herokuapp.com/api/overview/getOverview", {
+    axios.get(`${baseURL}/api/overview/getOverview`, {
       headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${Token}`
@@ -21,7 +22,6 @@ function OverviewPage() {
       .then(res => {
         const accuracy = parseInt(res.data.Average_Accuracy)
         setOverview(res.data)
-            const timer = ()=>{
                 const bar = document.getElementById('bar')
               const persentage = document.getElementById('number')
               const constant = 100/565
@@ -30,9 +30,7 @@ function OverviewPage() {
                persentage.textContent = `${per}%`
                
               
-            }
 
-            timer()
 
       })
   },[Token])

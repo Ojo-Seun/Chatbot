@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import Store from './Store'
 import Axios from 'axios'
-import validate from '../utils'
+import validate, { baseURL } from '../utils'
 
 
 
@@ -49,7 +49,7 @@ function MessageBox({show, setMessageArray,To}) {
             Text:input.text
         }
 
-        Axios.post("https://bolaji-chatbot.herokuapp.com/api/messages/sendMessage", message)
+        Axios.post(`${baseURL}/api/messages/sendMessage`, message)
             .then(res => {
             show(false)
         setMessageArray([{bot:res.data.message, user:''}])

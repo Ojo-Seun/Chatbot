@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Form from '../components/Form'
-import { validateData } from '../utils'
+import { baseURL, validateData } from '../utils'
 import Store from '../components/Store'
 
 function RegisterPage() {
@@ -32,7 +32,7 @@ function RegisterPage() {
      } else if (password !== confirmPassword) {
        setError('The two passwords are not equal')
      } else {
-       axios.post('https://bolaji-chatbot.herokuapp.com/api/admin/register', {
+       axios.post(`${baseURL}/api/admin/register`, {
                 name,
                 email,
               password

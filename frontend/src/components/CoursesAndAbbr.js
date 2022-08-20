@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import  Axios from 'axios'
+import { baseURL } from '../utils'
 
 function CoursesAndAbbr() {
   const [showTable, setShowTable] = useState(false)
@@ -11,7 +12,7 @@ function CoursesAndAbbr() {
 
 
   useState(() => {
-    Axios.get("https://bolaji-chatbot.herokuapp.com/api/courses/getCourses")
+    Axios.get(`${baseURL}/api/courses/getCourses`)
       .then(res => {
       setCourses(res.data.courses)
     })

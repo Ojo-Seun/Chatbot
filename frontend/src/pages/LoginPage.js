@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Store from '../components/Store'
-import { validateData } from '../utils'
+import { baseURL, validateData } from '../utils'
 import axios from 'axios'
 import Form from '../components/Form'
 
@@ -32,7 +32,7 @@ function LoginPage() {
        setError('You must fill all the fields')
        return
      }
-     axios.post('https://bolaji-chatbot.herokuapp.com/api/admin/login', {
+     axios.post(`${baseURL}/api/admin/login`, {
                 email,
                 password
              }).then(res => {

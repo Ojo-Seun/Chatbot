@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import '../chat.css'
-import validate from '../utils'
+import validate, { baseURL } from '../utils'
 import Axios from 'axios'
 import { SyncOutlined } from '@ant-design/icons'
 import MessageBox from './MessageBox'
@@ -57,7 +57,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/eventQuery`,{event: intent })
+        Axios.post(`${baseURL}/dialogflowApi/eventQuery`,{event: intent })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)
@@ -85,7 +85,7 @@ const scroll = (elements) => {
         const elements = document.getElementsByClassName("user")
         scroll(elements)
 
-        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/textQuery`,
+        Axios.post(`${baseURL}/dialogflowApi/textQuery`,
             {
              text:input
             })
@@ -112,7 +112,7 @@ const scroll = (elements) => {
                     Accuracy:response.Accuracy
                 }
 
-                Axios.post("/api/QnAs/addQnA", QnA)
+                Axios.post(`${baseURL}/api/QnAs/addQnA`, QnA)
 
                 
             }).catch(err => {
@@ -137,7 +137,7 @@ const scroll = (elements) => {
             return
         }
         
-        Axios.post(`https://bolaji-chatbot.herokuapp.com/dialogflowApi/eventQuery`,{event: "Introduction" })
+        Axios.post(`${baseURL}/dialogflowApi/eventQuery`,{event: "Introduction" })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
                 setLoading(false)

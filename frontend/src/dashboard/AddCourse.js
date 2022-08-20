@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Store from '../components/Store'
 import Tap1 from '../formTap/Tap1'
 import Tap2 from '../formTap/Tap2'
-import { courseProperties, formDataValidation } from '../utils'
+import { baseURL, courseProperties, formDataValidation } from '../utils'
 
 function AddCourse() {
   const navigate = useNavigate()
@@ -71,7 +71,7 @@ function AddCourse() {
 
 
 
-    axios.post(`https://bolaji-chatbot.herokuapp.com/api/courses/addCourse`,
+    axios.post(`${baseURL}/api/courses/addCourse`,
       data,
       {
 

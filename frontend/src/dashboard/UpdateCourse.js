@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Store from '../components/Store'
 import Tap1 from '../formTap/Tap1'
 import Tap2 from '../formTap/Tap2'
-import { courseProperties, formDataValidation } from '../utils'
+import { baseURL, courseProperties, formDataValidation } from '../utils'
 
 function UpdateCourse() {
   const navigate = useNavigate()
@@ -76,7 +76,7 @@ function UpdateCourse() {
 
 
 
-     axios.put(`https://bolaji-chatbot.herokuapp.com/api/courses/updateCourse/${_id}`,
+     axios.put(`${baseURL}/api/courses/updateCourse/${_id}`,
         data,
       {
 
@@ -98,7 +98,7 @@ function UpdateCourse() {
   }
 
   useEffect(() => {
-     axios.get(`https://bolaji-chatbot.herokuapp.com/api/courses/getCourse/${_id}`,
+     axios.get(`${baseURL}/api/courses/getCourse/${_id}`,
     {
         headers: {
           "Content-Type": "application/json",
