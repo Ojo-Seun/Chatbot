@@ -121,7 +121,7 @@
 }
 
 .inputContainer {
-    height: 8%;
+    height: 15%;
     width: 100%;
     display: flex;
     padding: 10px 0px;
@@ -287,6 +287,53 @@
 }
 
 
+/* EMAIL BOX */
+#email-box-container {
+    width: 90%;
+    margin: auto;
+}
+
+#email-box-container #email-box {
+    width: 100%;
+}
+
+#email-box .input-wrapper label {
+    display: block;
+    color: white;
+    text-align: center;
+}
+
+#email-box .input-wrapper input {
+    display: block;
+    width: 80%;
+    margin: auto;
+    border: none;
+    outline: none;
+    border-bottom: 5px solid whitesmoke;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.email-box-btn-wrapper {
+    text-align: center;
+    padding: 5px;
+}
+
+.email-box-btn-wrapper button {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: whitesmoke;
+    color: red;
+    cursor: pointer;
+}
+
+.email-box-btn-wrapper button:hover {
+    background-color: blue;
+    color: white;
+}
 
 
 
@@ -295,6 +342,7 @@
     .botContainer {
         width: 70vw;
     }
+    
 
 }
 
