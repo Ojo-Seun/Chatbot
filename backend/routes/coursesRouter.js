@@ -12,7 +12,7 @@ router.get('/getCourses', expressAsyncHandler(async (req, res) => {
     })
 }))
 
-router.get('/getCourse/:_id', expressAsyncHandler(async (req, res) => {
+router.get('/getCourse/:_id', isAuth,  expressAsyncHandler(async (req, res) => {
     const _id = req.params._id
     const course = await CoursesModel.findById(_id)
         .then(result => {

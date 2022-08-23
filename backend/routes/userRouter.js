@@ -9,12 +9,7 @@ import { isAuth } from '../utils.js'
 
 
 
-// router.get('/getEmails', expressAsyncHandler(async (req, res) => {
-//     const emails = await userModel.find()
-//     res.status(200).json({
-//         emails
-//     })
-// }))
+
 
 router.post('/addUserEmail', expressAsyncHandler(async (req, res) => {
     const now = new Date()

@@ -7,16 +7,7 @@ const router = express.Router()
 
 
 
-// const Find = (array) => {
-//     let newArray = []
-//     for (let i = 0; i < array.length; i++){
-//         const QnA = array[i]
-//         if (QnA.Understood === true) {
-//             newArray.push(QnA)
-//         }
-//     }
-//     return newArray
-// }
+
 
 
 router.get('/getOverview', isAuth, expressAsyncHandler(async (req, res) => {

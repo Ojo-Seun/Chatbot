@@ -47,18 +47,6 @@ const private_key = keys.private_key
 const sessionId = uuidv4()
 const LanguageCode = keys.LanguageCode
 
-// const credentials = {
-//   type:keys.type,
-//   project_id:keys.project_id,
-//   private_key_id:keys.private_key_id,
-//   private_key:keys.private_key,
-//   client_email:keys.client_email,
-//   client_id:keys.client_id,
-//   auth_uri:keys.auth_uri,
-//   token_uri:keys.token_uri,
-//   auth_provider_x509_cert_url:keys.auth_provider_x509_cert_url,
-//   client_x509_cert_url:keys.client_x509_cert_url
-// }
 
 const sessionClient = new dialogflow.SessionsClient({project_id, credentials});
 const sessionPath = sessionClient.sessionPath(project_id, sessionId);

@@ -18,7 +18,7 @@ router.post('/addComment', expressAsyncHandler(async (req, res) => {
 }))
 
 
-router.get('/getComments', expressAsyncHandler(async (req, res) => {
+router.get('/getComments', isAuth, expressAsyncHandler(async (req, res) => {
     const comments = await commentModel.find()
     res.status(200).json({
         comments

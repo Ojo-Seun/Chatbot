@@ -104,6 +104,43 @@
     color: white;
 }
 
+/* Pagination */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: center;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 20%;
+}
+
+.pagination-number,
+.pagination-button {
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+}
+
+.pagination-number:hover,
+.pagination-button:hover {
+    background: #fff;
+}
+
+
+
+.pagination-number.active {
+    color: #fff;
+    background: #0085b6;
+}
+
 
 
 /* Commen Screen */
@@ -111,12 +148,11 @@
     width: 90%;
     height: 90%;
     background-color: whitesmoke;
-    overflow: hidden;
+    position: relative;
 }
 
 .comment-screen table{
     width: 100%;
-    overflow-y: auto;
 }
 .comment-screen table thead tr th{
     background-color: blueviolet;
@@ -140,7 +176,7 @@ table tr td button{
         width: 90%;
         height: 98%;
         background-color: whitesmoke;
-        overflow: hidden;
+        position: relative;
 }
 
 .course-screen table thead tr th {
@@ -165,9 +201,9 @@ table tr td button{
     cursor: pointer;
 }
 .course-screen table{
-    display: block;
-    height: 100%;
-    overflow-y: scroll;
+    overflow: hidden;
+    height: 80%;
+    width: 100%;
 }
 
 
@@ -176,7 +212,7 @@ table tr td button{
     width: 90%;
     height: 90%;
     background-color: whitesmoke;
-    overflow-y: hidden;
+    position: relative;
 }
 
 .QnA-screen table thead tr th {
@@ -186,9 +222,7 @@ table tr td button{
 }
 
 .QnA-screen table{
-    display: block;
-    height: 100%;
-    overflow-y: scroll;
+width: 100%;    
 }
 
 /* Overview Screen */
