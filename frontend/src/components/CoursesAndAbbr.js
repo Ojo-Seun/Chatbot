@@ -20,7 +20,7 @@ function CoursesAndAbbr() {
 
   return (
       <div className='dropdown'>
-      <div className='open-dropdown'><button onClick={toggleTable}>{showTable?"Close" : "Courses"}</button></div>
+      <div className='open-dropdown'><button onClick={toggleTable}>{showTable?"Close" : "Postgraduate Courses"}</button></div>
       {
         showTable &&(
       <table className='content'>

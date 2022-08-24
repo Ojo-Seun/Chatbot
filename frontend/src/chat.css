@@ -100,7 +100,7 @@
     max-height: 80vh;
     width: 100%;
     height: 0px;
-    background-color: rgba(00, 00, 00, 0.8);
+    background-color: whitesmoke;
     transition: all 0.5s;
 }
 
@@ -288,18 +288,28 @@
 
 
 /* EMAIL BOX */
-#email-box-container {
+.email-box-container{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#email-box {
     width: 90%;
-    margin: auto;
 }
 
-#email-box-container #email-box {
+.privacy{
+    width: 80%;
+}
+ #email-box {
     width: 100%;
 }
 
 #email-box .input-wrapper label {
     display: block;
-    color: white;
+    color: gray;
     text-align: center;
 }
 
@@ -309,10 +319,10 @@
     margin: auto;
     border: none;
     outline: none;
-    border-bottom: 5px solid whitesmoke;
-    background-color: black;
-    color: white;
-    padding: 5px;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
     text-align: center;
 }
 
@@ -325,8 +335,9 @@
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color: whitesmoke;
+    background-color: rgba(200, 200, 200, 0.5);
     color: red;
+    border-radius: 10px;
     cursor: pointer;
 }
 

@@ -63,6 +63,7 @@ a{
   font-weight: bold;
   background-color: #009688;
   padding: 10px 16px;
+  border-radius: 5px;
   cursor: pointer;
 }
 

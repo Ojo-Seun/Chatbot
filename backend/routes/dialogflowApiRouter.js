@@ -29,6 +29,10 @@ const matchIntent = (course, intent, courseTitle) => {
                     return `You can contact Programme Director/Adminsions on ${course.contact.email} or ${course.contact.phoneNumber}`
                 case "howToApply":
                     return course.apply
+                case "payWithCards":
+                    return `Once you have received your offer, please call us on ${course.contact.phoneNumber} if you wish to pay over the phone.`
+                case "payByBank":
+                    return `Once you have received your offer please email ${course.contact.email} to arrange payment by bank transfer. Please read our Tuition Fees and Cancellation Policy.`
                 case "getDepartment":
                     return "Send message to department"
         }
@@ -85,6 +89,7 @@ router.post('/textQuery', expressAsyncHandler(async (req, res) => {
         const courseTitle = result.parameters.fields.courseTitle.stringValue
         const course = await CoursesModel.findOne({title:courseTitle})
         const Response = matchIntent(course, intent, courseTitle)
+
         const departmentEmail = intent === "getDepartment"? course.contact.email : ''
         
         res.status(200).json({
