@@ -194,7 +194,7 @@ const scroll = (elements) => {
                       {loading && <div><LoadingIndicator/></div>}
                       {showMessageBox.show && <div id='messagebox-container'><MessageBox To={showMessageBox.email} setMessageArray={setMessageArray} show={setMessageBox} /></div>}
                       {showEmailBox && <div id='email-box-container'><EmailBox setLoading={setLoading} eventQuery={eventQuery} setMessageArray={setMessageArray} setShowEmailBox={setShowEmailBox} /></div>}
-                      {showUrl.show && <div className='url'>For more information <a href={showUrl.url} target="_blank" rel="noreferrer" >Go to our website.</a></div>}
+                      {showUrl.show && <div className='url'>For more information <a href={showUrl.url} target="_blank" rel="noreferrer" >Click Here.</a></div>}
                   </div>
 
                   <form onSubmit={(e)=>textQuery(e)} className='inputContainer'>
