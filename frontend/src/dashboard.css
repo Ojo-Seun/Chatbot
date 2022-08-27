@@ -438,7 +438,7 @@ circle {
     border-radius: 50%;
     border-width: 10px;
     border-style: solid;
-    border-color: black white black purple;
+    border-color: purple white purple white;
     display: flex;
     justify-content: center;
     align-content: center;

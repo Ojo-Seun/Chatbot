@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import ChatbotImage from './components/ChatbotImage';
-import RegisterPage from './pages/RegisterPage';
 import IsLogin from './components/IsLogin';
 import CoursesAndAbbr from './components/CoursesAndAbbr';
 import IsAuth from './components/IsAuth';
@@ -29,7 +28,6 @@ function App() {
           <Routes>
           <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
-            <Route path='/register' element={<RegisterPage />} />
               <Route path='/dashboard/overview' element={<IsAuth><OverviewPage /></IsAuth>} />
             <Route path='/dashboard/courses' element={<IsAuth><CoursesPage /></IsAuth>} />
             <Route path='/dashboard/comments' element={<IsAuth><CommentsPage /></IsAuth>} />

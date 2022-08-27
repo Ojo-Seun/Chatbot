@@ -62,7 +62,7 @@ transporter.sendMail(mailOptions, function(error, info){
 
     await message.save().then(result => {
         res.status(200).json({
-        message:"Thanks, your message was delivered we will get back to you soon"
+        message:"Thanks, your message have been delivered we will get back to you soon"
     })
     }).catch(err => {
         return

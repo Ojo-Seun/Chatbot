@@ -179,6 +179,11 @@
     border-radius: 0px 20px 20px 20px
 }
 
+.url{
+    width:80%;
+    margin: auto;
+}
+
 @keyframes moveLeft {
     0%{
         margin-left: -100%;

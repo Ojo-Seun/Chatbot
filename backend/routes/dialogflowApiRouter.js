@@ -16,13 +16,15 @@ const matchIntent = (course, intent, courseTitle) => {
                 case "getCourseDescription":
                     return course.description;
                 case "getCourseDuration":
-                    return `The duration for ${courseTitle} is ${course.duration.fullTime} for full-time students and ${course.duration.partTime} for part-Time students`
+                    return `The duration for ${courseTitle} is ${course.duration.fullTime} for full-time students and ${course.duration.partTime} for part-Time students.`
                 case "getCourseTuition":
                     return `${course.tuition} for ${courseTitle}`
                 case "getCourseRequirement":
                     return `${course.requirement}`
                 case "getApplicationPeriod":
                     return `${course.applicationPeriod}`
+                case "getCourseModules":
+                    return `Course modules were grouped according to number of Trimesters or Years of study.`
                 case "getCourseStudyMode":
                     return course.studyMode
                 case "getContact":
@@ -87,8 +89,11 @@ router.post('/textQuery', expressAsyncHandler(async (req, res) => {
     })
     } else {
         const courseTitle = result.parameters.fields.courseTitle.stringValue
-        const course = await CoursesModel.findOne({title:courseTitle})
+        const course = await CoursesModel.findOne({ title: courseTitle })
         const Response = matchIntent(course, intent, courseTitle)
+        
+
+        const url = course.url
 
         const departmentEmail = intent === "getDepartment"? course.contact.email : ''
         
@@ -96,7 +101,8 @@ router.post('/textQuery', expressAsyncHandler(async (req, res) => {
             Response,
             departmentEmail,
             Understood,
-            Accuracy
+            Accuracy,
+            url:url
         })
     }
 

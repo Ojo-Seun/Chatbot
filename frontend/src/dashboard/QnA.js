@@ -10,7 +10,7 @@ import { baseURL } from '../utils'
 
 
 function QnA() {
-  const paginationLimit = 8
+  const paginationLimit = 6
   const { state } = useContext(Store)
   const {Token} = state.adminInfo
   const [data, setData] = useState({ QnAs: [], loading: true, error: false })

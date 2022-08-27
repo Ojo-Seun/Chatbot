@@ -19,6 +19,7 @@ function Chatbot() {
     const [open, setOpen] = useState(false)
     const [showMessageBox, setMessageBox] = useState({show:false, email:''})
     const [showEmailBox, setShowEmailBox] = useState(state.userEmail ? false : true)
+    const [showUrl, setShowUrl] = useState({show:false, url:''})
 
 
 const scroll = (elements) => {
@@ -56,7 +57,7 @@ const scroll = (elements) => {
         if (showEmailBox === true) {
             return
         }
-        
+        setShowUrl({show:false, url:""})
         Axios.post(`${baseURL}/dialogflowApi/eventQuery`,{event: intent })
             .then(res => {
                 setMessageArray([{ bot: res.data.Response, user: '' }])
@@ -70,12 +71,13 @@ const scroll = (elements) => {
  
 
     const textQuery = (e) => {
+            setShowUrl({show:false, url:''})
 
         e.preventDefault()
 
         const lastUserMessageIsEmpty = messageArray[messageArray.length - 1].user
 
-        if (validate(input)|| lastUserMessageIsEmpty === input) {
+        if (validate(input) || lastUserMessageIsEmpty === input) {
             return
         }
 
@@ -97,6 +99,11 @@ const scroll = (elements) => {
                 if (response.Response === "Send message to department") {
                     setMessageArray([])
                     setMessageBox({ show: true, email: response.departmentEmail })
+                } else if (response.url) {
+                    setMessageArray([...messageArray, { user: input, bot: response.Response }])
+                    const elements = document.getElementsByClassName("bot")
+                    setShowUrl({show:true, url:response.url})
+                    scroll(elements)
                 } else {
                     setMessageArray([...messageArray, { user: input, bot: response.Response }])
                     const elements = document.getElementsByClassName("bot")
@@ -127,6 +134,7 @@ const scroll = (elements) => {
         spinRef.current.classList.toggle("spin")
         setMessageBox({show:false, email:''})
         setLoading(false)
+        setShowUrl({show:false, url:''})
         eventQuery("Introduction", setMessageArray)
 
     }
@@ -186,6 +194,7 @@ const scroll = (elements) => {
                       {loading && <div><LoadingIndicator/></div>}
                       {showMessageBox.show && <div id='messagebox-container'><MessageBox To={showMessageBox.email} setMessageArray={setMessageArray} show={setMessageBox} /></div>}
                       {showEmailBox && <div id='email-box-container'><EmailBox setLoading={setLoading} eventQuery={eventQuery} setMessageArray={setMessageArray} setShowEmailBox={setShowEmailBox} /></div>}
+                      {showUrl.show && <div className='url'>For more information <a href={showUrl.url} target="_blank" rel="noreferrer" >Go to our website.</a></div>}
                   </div>
 
                   <form onSubmit={(e)=>textQuery(e)} className='inputContainer'>
