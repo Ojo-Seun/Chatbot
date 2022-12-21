@@ -16,7 +16,6 @@ function Comment() {
     if (validate(comment.comment) || comment.comment === "") {
       return
     }
-      console.log("false")
 
     setComment({ ...comment, isSent: true })
 

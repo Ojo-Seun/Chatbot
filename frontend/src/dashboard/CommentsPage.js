@@ -12,7 +12,8 @@ function CommentsPage() {
   const [pageCount, setPageCount] = useState(0)
   const [minRange, setMinRange] = useState(0)
   const [maxRange, setMaxRange] = useState(paginationLimit)
-  const  [currentTapNumber, setCurrentTapNumber] =useState(1)
+  const [currentTapNumber, setCurrentTapNumber] = useState(1)
+  const Token = state.adminInfo.Token
    
   
 
@@ -21,17 +22,13 @@ function CommentsPage() {
 
 
   const prevButton = (value) => {
-    if (currentTapNumber === 1) {
-      return
-    }
+    
     setCurrentTap(value)
     
   }
 
   const nextButton = (value) => {
-    if (currentTapNumber === pageCount) {
-      return
-    }
+    
     setCurrentTap(value)
     
   }
@@ -57,7 +54,7 @@ function CommentsPage() {
       {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${state.adminInfo.Token}`
+          "Authorization": `Bearer ${Token}`
         }
       }
     )
@@ -70,7 +67,6 @@ function CommentsPage() {
         }
       
       }).catch(err => {
-      console.log(err)
     })
     
 }
@@ -97,7 +93,7 @@ const activeTap = () => {
     {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${state.adminInfo.Token}`
+          "Authorization": `Bearer ${Token}`
         }
       })
       .then(res => {
@@ -115,7 +111,7 @@ const activeTap = () => {
       setData({comments:[], loading:false, error:true})
     })
 
-},[paginationLimit, currentTapNumber])
+},[paginationLimit, currentTapNumber, Token])
 
   return (
       <Dashboard>
@@ -159,7 +155,7 @@ const activeTap = () => {
         ):(<div style={{textAlign:"center"}}>No Comments</div>)}
         </div>
         <nav className="pagination-container">
-        <button className="pagination-button" id="prev-button" onClick={(e)=>prevButton(currentTapNumber - 1,e)}  aria-label="Previous page" title="Previous page">
+        <button className="pagination-button" id="prev-button" disabled={currentTapNumber === 1} onClick={(e)=>prevButton(currentTapNumber - 1,e)}  aria-label="Previous page" title="Previous page">
             &laquo;
         </button>
     
@@ -170,7 +166,7 @@ const activeTap = () => {
             }
         </div>
     
-        <button className="pagination-button" onClick={()=> nextButton(currentTapNumber + 1)} id="next-button" aria-label="Next page" title="Next page">
+        <button className="pagination-button" disabled = {currentTapNumber === pageCount} onClick={()=> nextButton(currentTapNumber + 1)} id="next-button" aria-label="Next page" title="Next page">
             &raquo;
         </button>
     </nav>

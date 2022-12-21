@@ -21,17 +21,13 @@ function CoursesPage() {
 
 
 const prevButton = (value) => {
-    if (currentTapNumber === 1) {
-      return
-    }
+    
     setCurrentTap(value)
     
   }
 
   const nextButton = (value) => {
-    if (currentTapNumber === pageCount) {
-      return
-    }
+    
     setCurrentTap(value)
     
   }
@@ -161,7 +157,7 @@ const activeTap = () => {
         {data.error && <div>Error In Connection</div>}
         </div>
         <nav className="pagination-container">
-        <button className="pagination-button" id="prev-button" onClick={(e)=>prevButton(currentTapNumber - 1,e)}  aria-label="Previous page" title="Previous page">
+        <button className="pagination-button" id="prev-button" disabled={currentTapNumber === 1} onClick={(e)=>prevButton(currentTapNumber - 1,e)}  aria-label="Previous page" title="Previous page">
             &laquo;
         </button>
     
@@ -172,7 +168,7 @@ const activeTap = () => {
             }
         </div>
     
-        <button className="pagination-button" onClick={()=> nextButton(currentTapNumber + 1)} id="next-button" aria-label="Next page" title="Next page">
+        <button className="pagination-button" disabled= {currentTapNumber === pageCount} onClick={()=> nextButton(currentTapNumber + 1)} id="next-button" aria-label="Next page" title="Next page">
             &raquo;
         </button>
     </nav>

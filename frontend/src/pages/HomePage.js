@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import Chatbot from '../components/chatbot'
 import Comment from '../components/Comment'
-import { baseURL } from '../utils'
-console.log(baseURL)
 
 function HomePage() {
     return (
